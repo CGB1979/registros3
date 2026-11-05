@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Control laboral personal de jornadas, horarios, horas extras y francos.">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/app.css">
+  <title>Control Laboral</title>
+</head>
+<body>
+  <div id="app" class="cl-app">
+    <header class="cl-topbar">
+      <div>
+        <p class="cl-eyebrow">CONTROL LABORAL</p>
+        <h1 id="cl-screen-title">Calendario</h1>
+      </div>
+      <button id="btn-settings" class="cl-icon-btn" type="button" aria-label="Configuración">⚙</button>
+    </header>
+
+    <main id="cl-main" class="cl-main" aria-live="polite"></main>
+
+    <nav class="cl-bottom-nav" aria-label="Navegación principal">
+      <button data-screen="calendar" class="cl-nav-btn active" type="button"><span>▦</span><small>Calendario</small></button>
+      <button data-screen="summary" class="cl-nav-btn" type="button"><span>◷</span><small>Jornales</small></button>
+      <button data-screen="leaves" class="cl-nav-btn" type="button"><span>◇</span><small>Francos</small></button>
+      <button data-screen="history" class="cl-nav-btn" type="button"><span>☷</span><small>Historial</small></button>
+    </nav>
+  </div>
+
+  <div id="cl-modal-root"></div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

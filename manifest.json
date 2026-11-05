@@ -1,0 +1,28 @@
+{
+  "id": "./",
+  "name": "Control Laboral – Registros",
+  "short_name": "Registros",
+  "description": "Control personal de jornadas, horarios, horas extras y francos.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
+  "background_color": "#f6f8fb",
+  "theme_color": "#ffffff",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
