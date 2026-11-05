@@ -25,5 +25,5 @@ export const CONFIG = {
 };
 export const DIAS_SEMANA=["Lun","Mar","Mié","Jue","Vie","Sáb","Dom"];
 export const MESES=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-export const VERSION_APP="1.0.16";
+export const VERSION_APP="1.0.17";
 export const FERIADO_EXCESO_GENERA_FRANCO=false;

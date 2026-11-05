@@ -114,10 +114,6 @@ function referenceIntervals(record, schedule) {
   }).filter(interval => interval.end > interval.start);
 }
 
-function scheduledReferenceMinutes(record, schedule) {
-  return referenceIntervals(record, schedule).reduce((sum, interval) => sum + interval.end - interval.start, 0);
-}
-
 export function calculateDay(record, date, holiday, settings = {}) {
   const real = realWorkedMinutes(record);
   const schedule = estimatedScheduleFromRecord(record, date);
@@ -181,9 +177,15 @@ export function calculateDay(record, date, holiday, settings = {}) {
     } else if (lastEnd < specialMinimum) counted = Math.min(required, reference);
   }
 
+  // Redondear las extras del sábado por ciclo diario, sin arrastrar minutos.
+  // En sábados voluntarios el total computado debe coincidir con la suma de
+  // esos tramos ya redondeados, para que la pantalla y el Excel no muestren
+  // minutos excedentes que no aparecen en las horas extra.
   if (!sunday && !holidayWorked && !leaveMode && (extra50 > 0 || extra100 > 0) && saturday) {
     const rounded = roundExtraBuckets(extra50, extra100);
-    extra50 = rounded.extra50; extra100 = rounded.extra100;
+    extra50 = rounded.extra50;
+    extra100 = rounded.extra100;
+    if (record?.saturdayType === "voluntario") counted = extra50 + extra100;
   }
 
   if (!record?.leaveMode && required > 0 && reference < required) review = required - reference > CONFIG.TOLERANCIA_MINUTOS;
